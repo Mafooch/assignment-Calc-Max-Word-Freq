@@ -5,23 +5,23 @@ describe LineAnalyzer do
   subject(:lineAnalyzer) { LineAnalyzer.new("test", 1) }
 
   it "has accessor for highest_wf_count" do
-    is_expected.to respond_to(:highest_wf_count) 
-  end 
+    is_expected.to respond_to(:highest_wf_count)
+  end
   it "has accessor for highest_wf_words" do
-    is_expected.to respond_to(:highest_wf_words) 
+    is_expected.to respond_to(:highest_wf_words)
   end
   it "has accessor for content" do
-    is_expected.to respond_to(:content) 
+    is_expected.to respond_to(:content)
   end
   it "has accessor for line_number" do
-    is_expected.to respond_to(:line_number) 
+    is_expected.to respond_to(:line_number)
   end
   it "has method calculate_word_frequency" do
-    is_expected.to respond_to(:calculate_word_frequency) 
+    is_expected.to respond_to(:calculate_word_frequency)
   end
   context "attributes and values" do
   it "has attributes content and line_number" do
-    is_expected.to have_attributes(content: "test", line_number: 1) 
+    is_expected.to have_attributes(content: "test", line_number: 1)
   end
   it "content attribute should have value \"test\"" do
     expect(lineAnalyzer.content).to eq("test")
@@ -33,7 +33,7 @@ end
 
   it "calls calculate_word_frequency when created" do
     expect_any_instance_of(LineAnalyzer).to receive(:calculate_word_frequency)
-    LineAnalyzer.new("", 1) 
+    LineAnalyzer.new("", 1)
   end
 
   context "#calculate_word_frequency" do
