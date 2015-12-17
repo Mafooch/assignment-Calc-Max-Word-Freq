@@ -18,10 +18,10 @@ class LineAnalyzer
   #* take in a line of text and line number
   #* initialize the content and line_number attributes
   #* call the calculate_word_frequency() method.
-  def initialize(content, line_number)
+  def initialize content, line_number
     @content = content
     @line_number = line_number
-    calculate_word_frequency(content)
+    calculate_word_frequency content
   end
 
   #Implement the calculate_word_frequency() method to:
@@ -29,23 +29,18 @@ class LineAnalyzer
   #  provided content and store that in the highest_wf_count attribute.
   #* identify the words that were used the maximum number of times and
   #  store that in the highest_wf_words attribute.
-  def calculate_word_frequency(content)
+  def calculate_word_frequency content
     word_usage = Hash.new
     word_array = content.split
     word_array.each do |word|
-      if word_usage[word]
-        word_usage[word] += 1
-      else
-        word_usage[word] = 1
-      end
+      word_usage[word] ? word_usage[word] += 1 : word_usage[word] = 1
     end
+    
     @highest_wf_count = word_usage.values.max
     @highest_wf_words = Array.new
 
     word_usage.select do |word, frequency|
-      if frequency == @highest_wf_count
-        @highest_wf_words << word
-      end
+      @highest_wf_words << word if frequency == @highest_wf_count
     end
   end
 end
